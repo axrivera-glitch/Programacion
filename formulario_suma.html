@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Suma</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      max-width: 520px;
+      align-items: end;
+    }
+    label { display:block; margin-bottom: .25rem; font-weight: 600; }
+    input { width: 100%; padding: .5rem; }
+    button { padding: .6rem 1rem; cursor: pointer; }
+    .resultado { margin-top: 1rem; font-size: 1.1rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Sumar dos números</h1>
+  <p>Ingresa un número primero y otro después; el diseño los muestra en paralelo.</p>
+
+  <div class="form-grid">
+    <div>
+      <label for="n1">Número 1</label>
+      <input id="n1" type="number" step="any" />
+    </div>
+
+    <div>
+      <label for="n2">Número 2</label>
+      <input id="n2" type="number" step="any" />
+    </div>
+
+    <div>
+      <button id="sumar">Sumar</button>
+    </div>
+  </div>
+
+  <div class="resultado" id="resultado">Resultado: --</div>
+
+  <script>
+    document.getElementById('sumar').addEventListener('click', () => {
+      const n1 = parseFloat(document.getElementById('n1').value) || 0;
+      const n2 = parseFloat(document.getElementById('n2').value) || 0;
+      document.getElementById('resultado').textContent = `Resultado: ${n1 + n2}`;
+    });
+  </script>
+</body>
+</html>
